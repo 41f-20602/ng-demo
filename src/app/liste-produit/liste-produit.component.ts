@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeProduitComponent implements OnInit {
 
-  constructor() { }
+	nom:string = "toto le magicien";
+	note:number = 16;
 
-  ngOnInit(): void {
-  }
+	produit:Array<any>;
 
+	constructor() {
+		console.log("constructeur");
+	}
+
+	ngOnInit(): void {		
+		this.produit = [...Array(10)].map(
+			(item, index)=>({"id": index, "nom" : ("item "+ index), "prix": index*index})
+			);
+		console.log(this.produit);
+	}
+
+	verifAubaine(prix:number):boolean{
+		return (prix < this.note ? true : false );
+	}	
 }
