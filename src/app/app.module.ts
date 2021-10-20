@@ -11,6 +11,7 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
 import { EnteteComponent } from './entete/entete.component';
 import { NonTrouveComponent } from './non-trouve/non-trouve.component';
 import { ProduitComponent } from './produit/produit.component';
+import { EditionService } from './edition.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ProduitComponent } from './produit/produit.component';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [EditionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

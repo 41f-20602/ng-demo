@@ -10,8 +10,9 @@
     <p>Prix limite : <input [(ngModel)]="prixLimite">
     <span>{{prixLimite}}</span></p>
     <button [disabled] = "!verifValide()">Bouton filtre (ne fait rien)</button>
-        
-    <app-produit *ngFor = "let unProduit of produit" [prixMax]="prixLimite" [produit]="unProduit"></app-produit>
+    <p>Est éditable ? : <input type="checkbox" [(ngModel)]="estEditable"></p>
+
+    <app-produit *ngFor = "let unProduit of produit" [editable]="estEditable" [prixMax]="prixLimite" [produit]="unProduit"></app-produit>
     
     <!--<h1>Container</h1>
     <ng-container *ngFor = "let unProduit of produit" >

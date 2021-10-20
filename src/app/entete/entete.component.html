@@ -5,6 +5,8 @@
         <a routerLink="/produit">Les produits</a>
         <!--<a href="/produit">Les produits (href)</a>-->
     </nav>
-
+    <section>
+        <p>Est éditable ? : <input (change)="changeEditable()" type="checkbox" [(ngModel)]="estEditable"></p>
+    </section>
 
 </header>

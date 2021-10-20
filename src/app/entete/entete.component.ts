@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EditionService } from '../edition.service';
 
 @Component({
   selector: 'app-entete',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entete.component.scss']
 })
 export class EnteteComponent implements OnInit {
+  estEditable:boolean;
 
-  constructor() { }
+  constructor(private editionServ:EditionService) { }
 
   ngOnInit(): void {
+    this.editionServ.getEditable().subscribe(data=>console.log(data));
   }
 
+  changeEditable(){
+      this.editionServ.setEditable(this.estEditable);
+  }
 }

@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProduitComponent implements OnInit {
   @Input() produit:any;
   @Input() prixMax:number = 16;
+  @Input() editable:boolean;
   
   constructor() { }
 

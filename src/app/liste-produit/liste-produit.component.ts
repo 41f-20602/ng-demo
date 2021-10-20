@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EditionService } from '../edition.service';
 
 @Component({
   selector: 'app-liste-produit',
@@ -14,7 +15,9 @@ export class ListeProduitComponent implements OnInit {
 
 	prixLimite:number;
 
-	constructor() {
+	estEditable:boolean = false;
+
+	constructor(private editionServ:EditionService) {
 		console.log("constructeur");
 	}
 
@@ -23,6 +26,7 @@ export class ListeProduitComponent implements OnInit {
 			(item, index)=>({"id": index, "nom" : ("item "+ index), "prix": index*index})
 			);
 		console.log(this.produit);
+		this.editionServ.getEditable().subscribe(data=>{ this.estEditable = data; console.log(data)});
 	}
 	
 	verifValide():boolean{
