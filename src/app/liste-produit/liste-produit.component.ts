@@ -23,7 +23,5 @@ export class ListeProduitComponent implements OnInit {
 		console.log(this.produit);
 	}
 
-	verifAubaine(prix:number):boolean{
-		return (prix < this.note ? true : false );
-	}	
+	
 }

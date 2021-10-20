@@ -2,12 +2,15 @@
 <p>Nom : {{nom}}</p>
 <p>Note : {{note}}</p>
 <section>
-    
-    <article *ngFor = "let unProduit of produit">
+    <!--<article class="unProduit" *ngFor = "let unProduit of produit">
         <p>Nom : {{unProduit.nom}}</p>
         <p>Prix : {{unProduit.prix}} $ <span *ngIf="unProduit.prix < note">(Aubaine)</span></p>
         <p>Prix : {{unProduit.prix}} $ <span *ngIf="verifAubaine(unProduit.prix)">(Aubaine)</span></p>
-        
-    </article>
+    </article>-->
 
+    <app-produit *ngFor = "let unProduit of produit" [produit]="unProduit"></app-produit>
+    
+    <!--<ng-container *ngFor = "let unProduit of produit" >
+        <app-produit [produit]="unProduit"></app-produit>
+    </ng-container>-->
 </section>
