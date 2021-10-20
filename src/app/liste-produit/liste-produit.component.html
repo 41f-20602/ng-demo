@@ -7,10 +7,13 @@
         <p>Prix : {{unProduit.prix}} $ <span *ngIf="unProduit.prix < note">(Aubaine)</span></p>
         <p>Prix : {{unProduit.prix}} $ <span *ngIf="verifAubaine(unProduit.prix)">(Aubaine)</span></p>
     </article>-->
-
-    <app-produit *ngFor = "let unProduit of produit" [produit]="unProduit"></app-produit>
+    <p>Prix limite : <input [(ngModel)]="prixLimite"></p>
+    <span>{{prixLimite}}</span>
+        
+    <app-produit *ngFor = "let unProduit of produit"  [produit]="unProduit"></app-produit>
     
-    <!--<ng-container *ngFor = "let unProduit of produit" >
+    <!--<h1>Container</h1>
+    <ng-container *ngFor = "let unProduit of produit" >
         <app-produit [produit]="unProduit"></app-produit>
     </ng-container>-->
 </section>

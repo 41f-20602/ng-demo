@@ -1,0 +1,11 @@
+:host {
+    background-color: bisque;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+
+    p{
+        margin: 0;    
+        padding: 0;
+    }
+}

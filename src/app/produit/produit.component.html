@@ -1,5 +1,4 @@
-<article class="unProduit">
-    <p>Nom : {{produit.nom}}</p>
-    <p>Prix : {{produit.prix}} <span *ngIf="produit.prix < prixMax">(Aubaine)</span></p>
-    <p>Prix : {{produit.prix}} <span *ngIf="verifAubaine(produit.prix)">(Aubaine)</span></p>
-</article>
+<p>Nom : {{produit.nom}}</p>
+<p>Prix : {{produit.prix}} <span *ngIf="produit.prix < prixMax">(Aubaine)</span></p>
+<p>Prix : {{produit.prix}} <span *ngIf="verifAubaine(produit.prix)">(Aubaine)</span></p>
+<p>Description : {{produit.description}} </p>

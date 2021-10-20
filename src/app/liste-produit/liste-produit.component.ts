@@ -12,6 +12,8 @@ export class ListeProduitComponent implements OnInit {
 
 	produit:Array<any>;
 
+	prixLimite:number;
+
 	constructor() {
 		console.log("constructeur");
 	}
