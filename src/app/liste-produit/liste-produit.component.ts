@@ -24,6 +24,13 @@ export class ListeProduitComponent implements OnInit {
 			);
 		console.log(this.produit);
 	}
-
+	
+	verifValide():boolean{
+		let bValide = false;
+		if(this.prixLimite > 0 ){
+			bValide = true;
+		}
+		return bValide;
+	}
 	
 }

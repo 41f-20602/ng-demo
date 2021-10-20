@@ -2,15 +2,16 @@
 <p>Nom : {{nom}}</p>
 <p>Note : {{note}}</p>
 <section>
-    <!--<article class="unProduit" *ngFor = "let unProduit of produit">
+    <!--<article [class]="unProduit.nom" *ngFor = "let unProduit of produit">
         <p>Nom : {{unProduit.nom}}</p>
         <p>Prix : {{unProduit.prix}} $ <span *ngIf="unProduit.prix < note">(Aubaine)</span></p>
         <p>Prix : {{unProduit.prix}} $ <span *ngIf="verifAubaine(unProduit.prix)">(Aubaine)</span></p>
     </article>-->
-    <p>Prix limite : <input [(ngModel)]="prixLimite"></p>
-    <span>{{prixLimite}}</span>
+    <p>Prix limite : <input [(ngModel)]="prixLimite">
+    <span>{{prixLimite}}</span></p>
+    <button [disabled] = "!verifValide()">Bouton filtre (ne fait rien)</button>
         
-    <app-produit *ngFor = "let unProduit of produit"  [produit]="unProduit"></app-produit>
+    <app-produit *ngFor = "let unProduit of produit" [prixMax]="prixLimite" [produit]="unProduit"></app-produit>
     
     <!--<h1>Container</h1>
     <ng-container *ngFor = "let unProduit of produit" >
