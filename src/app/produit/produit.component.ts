@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IProduit } from '../i-produit';
 
 @Component({
   selector: 'app-produit',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./produit.component.scss']
 })
 export class ProduitComponent implements OnInit {
-  @Input() produit:any;
+  @Input() produit:IProduit;
   @Input() prixMax:number = 16;
   @Input() editable:boolean;
   

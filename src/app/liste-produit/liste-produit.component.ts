@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { EditionService } from '../edition.service';
+import { IListeProduit } from '../i-liste-produit';
+import { IProduit } from '../i-produit';
+import { EditionService } from '../services/edition.service';
+import { ProduitServService } from '../services/produit-serv.service';
+
 
 @Component({
   selector: 'app-liste-produit',
@@ -11,22 +15,23 @@ export class ListeProduitComponent implements OnInit {
 	nom:string = "toto le magicien";
 	note:number = 16;
 
-	produit:Array<any>;
+	produit:IProduit[];
 
 	prixLimite:number;
 
 	estEditable:boolean = false;
 
-	constructor(private editionServ:EditionService) {
+	constructor(private editionServ:EditionService, private produitServ:ProduitServService) {
 		console.log("constructeur");
 	}
 
 	ngOnInit(): void {		
-		this.produit = [...Array(10)].map(
-			(item, index)=>({"id": index, "nom" : ("item "+ index), "prix": index*index})
-			);
+		/*this.produit = [...Array(10)].map(
+			(item, index)=>(<IProduit>{"id_biere": index, "nom" : ("item "+ index), "prix": index*index})
+			);*/
 		console.log(this.produit);
-		this.editionServ.getEditable().subscribe(data=>{ this.estEditable = data; console.log(data)});
+		//this.editionServ.getEditable().subscribe(data=>{ this.estEditable = data; console.log(data)});
+		this.produitServ.getListeProduit().subscribe((data:IListeProduit)=>{this.produit = data.data});
 	}
 	
 	verifValide():boolean{
@@ -37,4 +42,12 @@ export class ListeProduitComponent implements OnInit {
 		return bValide;
 	}
 	
+	valideConnecter(){
+		//if(this.editionServ.getConnecte())
+
+		if(this.editionServ.connecte == false && this.estEditable == true){
+			this.estEditable = false;
+		}
+	}
+
 }

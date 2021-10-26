@@ -11,7 +11,8 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
 import { EnteteComponent } from './entete/entete.component';
 import { NonTrouveComponent } from './non-trouve/non-trouve.component';
 import { ProduitComponent } from './produit/produit.component';
-import { EditionService } from './edition.service';
+import { EditionService } from './services/edition.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EditionService } from './edition.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [EditionService],
   bootstrap: [AppComponent]

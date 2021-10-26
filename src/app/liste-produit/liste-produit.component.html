@@ -10,7 +10,7 @@
     <p>Prix limite : <input [(ngModel)]="prixLimite">
     <span>{{prixLimite}}</span></p>
     <button [disabled] = "!verifValide()">Bouton filtre (ne fait rien)</button>
-    <p>Est éditable ? : <input type="checkbox" [(ngModel)]="estEditable"></p>
+    <p>Est éditable ? : <input type="checkbox" (change)="valideConnecter()" [(ngModel)]="estEditable"></p>
 
     <app-produit *ngFor = "let unProduit of produit" [editable]="estEditable" [prixMax]="prixLimite" [produit]="unProduit"></app-produit>
     
