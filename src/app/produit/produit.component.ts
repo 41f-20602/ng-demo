@@ -55,12 +55,17 @@ export class ProduitComponent implements OnInit {
   verifAubaine(prix:number):boolean{
 		return (prix < this.prixMax ? true : false );
   }	
-  
+
   annuler():void{
     
     this.modifForm.controls.nom.setValue (this.produit.nom);
     this.modifForm.controls.brasserie.setValue (this.produit.brasserie);
     this.modifForm.controls.description.setValue (this.produit.description);
+  }
+
+  changement(){
+    console.log("change");
+    console.log(this.modifForm.value.nom);
   }
   modifierProduit():void{
     console.log(this.produit);

@@ -11,7 +11,7 @@
 
 <ng-container *ngIf="editable; else nonEditable">
     <form [formGroup]="modifForm">
-    <p>Nom : <input formControlName="nom"></p>
+    <p>Nom : <input (keyup)="changement()" formControlName="nom"></p>
     <p>Brasserie : <input formControlName="brasserie"></p>
     <p>Description : <input formControlName="description"></p>
     
