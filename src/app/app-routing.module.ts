@@ -10,7 +10,7 @@ import { NonTrouveComponent } from './non-trouve/non-trouve.component';
 const routes: Routes = [
   {path:"", component:AccueilComponent},
   {path:"produit", component:ListeProduitComponent, canActivate:[GardienAuthGuard]},
-  {path:"produit/:id", component:DetailProduitComponent, canActivate:[GardienAuthGuard]},
+  {path:"produit/:id", component:ListeProduitComponent, canActivate:[GardienAuthGuard]},
   {path:"liste", redirectTo:"/produit"},
   {path:"**", component:NonTrouveComponent},
 ];

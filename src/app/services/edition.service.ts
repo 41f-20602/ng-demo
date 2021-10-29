@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class EditionService {
   //estEditable:BehaviorSubject<boolean>;
   //estEditable$:Observable<boolean>;
-  etatConnexion:boolean = false;
+  etatConnexion:boolean = true;
 
   constructor(private router:Router) { 
     console.log("Le service est construit");

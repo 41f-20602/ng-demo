@@ -12,7 +12,7 @@
     <button [disabled] = "!verifValide()">Bouton filtre (ne fait rien)</button>
     <p>Est éditable ? : <input type="checkbox" (change)="valideConnecter()" [(ngModel)]="estEditable"></p>
 
-    <app-produit *ngFor = "let unProduit of produit" [editable]="estEditable" [prixMax]="prixLimite" [produit]="unProduit"></app-produit>
+    <app-produit *ngFor = "let unProduit of produit" [actif]="idProduitActif" [editable]="estEditable" [prixMax]="prixLimite" [produit]="unProduit"></app-produit>
     
     <!--<h1>Container</h1>
     <ng-container *ngFor = "let unProduit of produit" >

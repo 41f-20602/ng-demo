@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IListeProduit } from '../i-liste-produit';
 import { IProduit } from '../i-produit';
 import { EditionService } from '../services/edition.service';
@@ -20,9 +21,17 @@ export class ListeProduitComponent implements OnInit {
 	prixLimite:number;
 
 	estEditable:boolean = false;
-
-	constructor(private editionServ:EditionService, private produitServ:ProduitServService) {
+	idProduitActif:number;
+	
+	constructor(private editionServ:EditionService, private produitServ:ProduitServService, private route: ActivatedRoute) {
 		console.log("constructeur");
+		console.log(route);
+		console.log(route);
+		route.params.subscribe((data)=>{
+			this.idProduitActif = data.id;
+		});
+		console.log(route.snapshot.params.id);
+		
 	}
 
 	ngOnInit(): void {		

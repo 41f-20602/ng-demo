@@ -1,11 +1,29 @@
+<!--<ng-container *ngIf="editable; else nonEditable">
+    <p>Nom : <input required minlength="4" [(ngModel)]="produit.nom"  #nom="ngModel"></p>
+    <div *ngIf="nom.dirty">
+        Modifier
+      </div>
+    <p>Brasserie : <input [(ngModel)]="produit.brasserie"></p>
+    <p>Description : <input [(ngModel)]="produit.description"></p>
+    
+    <button [disabled]="!nom.dirty" (click)="modifierProduit()">Modifier</button>
+</ng-container>-->
+
 <ng-container *ngIf="editable; else nonEditable">
-    <p>Nom : <input [(ngModel)]="produit.nom"></p>
-    <p>Prix : <input [(ngModel)]="produit.prix"></p>
+    <form [formGroup]="modifForm">
+    <p>Nom : <input formControlName="nom"></p>
+    <p>Brasserie : <input formControlName="brasserie"></p>
+    <p>Description : <input formControlName="description"></p>
+    
+    <button [disabled]="!modifForm.dirty || !modifForm.valid" (click)="modifierProduit()">Modifier</button>
+    <button [disabled]="!modifForm.dirty" (click)="annuler()">Annuler</button>
+    </form>
 </ng-container>
 
 <ng-template #nonEditable>
-    <p>Nom : {{produit.nom}}</p>
+    <p><a routerLink="/produit/{{produit.id_biere}}">Nom : {{produit.nom}}</a></p>
     <p>Prix : {{produit.prix}} <span *ngIf="produit.prix < prixMax">(Aubaine)</span></p>
     <p>Prix : {{produit.prix}} <span *ngIf="verifAubaine(produit.prix)">(Aubaine)</span></p>
     <p>Description : {{produit.description}} </p>
 </ng-template>
+Edité : <input type="checkbox" [(ngModel)]="editable">
